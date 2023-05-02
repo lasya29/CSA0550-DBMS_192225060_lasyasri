@@ -1,0 +1,65 @@
+mysql> use sse;
+Database changed
+mysql> desc student;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| name   | varchar(15) | YES  |     | NULL    |       |
+| id     | int(15)     | NO   | PRI | 0       |       |
+| gender | char(2)     | YES  | UNI | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.05 sec)
+
+mysql> insert into student
+    -> values('supriya',120,'f');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into student
+    -> values('tharun',121,'m');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into student
+    -> values('nithya',122,'f');
+ERROR 1062 (23000): Duplicate entry 'f' for key 'gender'
+mysql> select*from student;
++---------+-----+--------+
+| name    | id  | gender |
++---------+-----+--------+
+| supriya | 120 | f      |
+| tharun  | 121 | m      |
++---------+-----+--------+
+2 rows in set (0.00 sec)
+
+mysql> select names from student;
+ERROR 1054 (42S22): Unknown column 'names' in 'field list'
+mysql> select name from student;
++---------+
+| name    |
++---------+
+| supriya |
+| tharun  |
++---------+
+2 rows in set (0.00 sec)
+
+mysql> select*from student;
++---------+-----+--------+
+| name    | id  | gender |
++---------+-----+--------+
+| supriya | 120 | f      |
+| tharun  | 121 | m      |
++---------+-----+--------+
+2 rows in set (0.00 sec)
+
+mysql> select*from employee
+    -> where name="supriya";
+ERROR 1146 (42S02): Table 'sse.employee' doesn't exist
+mysql> select*from student
+    -> where name="supriya";
++---------+-----+--------+
+| name    | id  | gender |
++---------+-----+--------+
+| supriya | 120 | f      |
++---------+-----+--------+
+1 row in set (0.00 sec)
+
+mysql>
