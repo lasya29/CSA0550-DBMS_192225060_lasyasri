@@ -1,0 +1,72 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sse                |
+| test               |
++--------------------+
+5 rows in set (0.02 sec)
+
+mysql> create database student;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use student;
+Database changed
+mysql> create table student(std_id int(5),std_name char(20),gender char(15),phone int(15),dob date,department char(20));
+
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc student;
++------------+----------+------+-----+---------+-------+
+| Field      | Type     | Null | Key | Default | Extra |
++------------+----------+------+-----+---------+-------+
+| std_id     | int(5)   | YES  |     | NULL    |       |
+| std_name   | char(20) | YES  |     | NULL    |       |
+| gender     | char(15) | YES  |     | NULL    |       |
+| phone      | int(15)  | YES  |     | NULL    |       |
+| dob        | date     | YES  |     | NULL    |       |
+| department | char(20) | YES  |     | NULL    |       |
++------------+----------+------+-----+---------+-------+
+6 rows in set (0.06 sec)
+
+mysql> alter table student
+    -> add column year int(5);
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++------------+----------+------+-----+---------+-------+
+| Field      | Type     | Null | Key | Default | Extra |
++------------+----------+------+-----+---------+-------+
+| std_id     | int(5)   | YES  |     | NULL    |       |
+| std_name   | char(20) | YES  |     | NULL    |       |
+| gender     | char(15) | YES  |     | NULL    |       |
+| phone      | int(15)  | YES  |     | NULL    |       |
+| dob        | date     | YES  |     | NULL    |       |
+| department | char(20) | YES  |     | NULL    |       |
+| year       | int(5)   | YES  |     | NULL    |       |
++------------+----------+------+-----+---------+-------+
+7 rows in set (0.05 sec)
+
+mysql> alter table student
+    -> drop column gender;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++------------+----------+------+-----+---------+-------+
+| Field      | Type     | Null | Key | Default | Extra |
++------------+----------+------+-----+---------+-------+
+| std_id     | int(5)   | YES  |     | NULL    |       |
+| std_name   | char(20) | YES  |     | NULL    |       |
+| phone      | int(15)  | YES  |     | NULL    |       |
+| dob        | date     | YES  |     | NULL    |       |
+| department | char(20) | YES  |     | NULL    |       |
+| year       | int(5)   | YES  |     | NULL    |       |
++------------+----------+------+-----+---------+-------+
+6 rows in set (0.06 sec)
+
+mysql>
